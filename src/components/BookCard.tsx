@@ -1,38 +1,39 @@
 import React from 'react';
-import { Star } from 'lucide-react';
-import { Book } from '../../types/book';
+import type { Book } from '../types/book';
 
 interface BookCardProps {
   book: Book;
   onClick: () => void;
 }
 
-export const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
+export function BookCard({ book, onClick }: BookCardProps) {
   const { volumeInfo } = book;
-  const thumbnail = volumeInfo.imageLinks?.thumbnail || 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=200';
+  const thumbnail = volumeInfo.imageLinks?.thumbnail || 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=200';
 
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+      className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
     >
-      <img
-        src={thumbnail}
-        alt={volumeInfo.title}
-        className="w-full h-48 object-cover"
-      />
+      <div className="h-48 overflow-hidden">
+        <img
+          src={thumbnail}
+          alt={volumeInfo.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div className="p-4">
         <h3 className="font-semibold text-lg mb-1 line-clamp-1">{volumeInfo.title}</h3>
-        <p className="text-gray-600 text-sm mb-2 line-clamp-1">
+        <p className="text-sm text-gray-600 mb-2">
           {volumeInfo.authors?.join(', ') || 'Unknown Author'}
         </p>
         {volumeInfo.averageRating && (
           <div className="flex items-center">
-            <Star className="h-4 w-4 text-yellow-400 fill-current" />
+            <span className="text-yellow-500">★</span>
             <span className="ml-1 text-sm text-gray-600">{volumeInfo.averageRating}</span>
           </div>
         )}
       </div>
     </div>
   );
-};
+}

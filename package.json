@@ -2,11 +2,8 @@
   "name": "bookhub",
   "private": true,
   "version": "1.0.0",
-  "author":"Nour N.Ghsaier",
+  "author": "Nour N.Ghsaier",
   "type": "module",
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,8 +13,7 @@
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "axios": "^1.6.7"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
