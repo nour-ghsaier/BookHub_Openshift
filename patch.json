@@ -1,0 +1,11 @@
+{
+    "spec": {
+      "strategy": {
+        "sourceStrategy": {
+          "from": {
+            "name": "nodejs:18"
+          }
+        }
+      }
+    }
+  }
